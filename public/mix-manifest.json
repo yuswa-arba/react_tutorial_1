@@ -1,0 +1,15 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/plugins/css/bootstrap.css": "/plugins/css/bootstrap.css",
+    "/plugins/css/bootstrap-grid.css": "/plugins/css/bootstrap-grid.css",
+    "/plugins/css/bootstrap-reboot.css": "/plugins/css/bootstrap-reboot.css",
+    "/plugins/css/dataTables.bootstrap4.min.css": "/plugins/css/dataTables.bootstrap4.min.css",
+    "/plugins/js/bootstrap.min.js": "/plugins/js/bootstrap.min.js",
+    "/plugins/js/bootstrap.bundle.min.js": "/plugins/js/bootstrap.bundle.min.js",
+    "/plugins/js/dataTables.bootstrap4.min.js": "/plugins/js/dataTables.bootstrap4.min.js",
+    "/plugins/js/jquery.dataTables.min.js": "/plugins/js/jquery.dataTables.min.js",
+    "/plugins/js/jquery.min.js": "/plugins/js/jquery.min.js",
+    "/plugins/js/jquery.slim.min.js": "/plugins/js/jquery.slim.min.js",
+    "/plugins/chart/chart.js": "/plugins/chart/chart.js"
+}
