@@ -32,6 +32,12 @@ mix.copyDirectory('resources/assets/plugins/chart.js', 'public/plugins/chart');
 mix.copyDirectory('resources/assets/plugins/fontawesome-free', 'public/plugins/fontawesome-free');
 mix.copyDirectory('resources/assets/plugins/jquery-easing', 'public/plugins/jquery-easing');
 
+mix.copyDirectory('resources/assets/images', 'public/images');
+
+mix.react('resources/assets/js/frontend/dashboard/Dashboard.js', 'public/js/frontend/dashboard');
+mix.react('resources/assets/js/frontend/auth/Auth.js', 'public/js/frontend/auth');
+mix.react('resources/assets/js/frontend/customer/Customer.js', 'public/js/frontend/customer');
+
 mix.sass('resources/assets/plugins/bootstrap/scss/bootstrap.scss', 'public/plugins/css');
 mix.sass('resources/assets/plugins/bootstrap/scss/bootstrap-grid.scss', 'public/plugins/css');
 mix.sass('resources/assets/plugins/bootstrap/scss/bootstrap-reboot.scss', 'public/plugins/css');

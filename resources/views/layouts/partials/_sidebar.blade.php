@@ -8,9 +8,9 @@
         <div class="sidebar-brand-text mx-3">Cooperative</div>
     </a>
 
-    <hr class="sidebar-divider my-0">
-
     @include('layouts.partials.sidebars._dashboard')
+
+    @include('layouts.partials.sidebars._customer')
 
     <hr class="sidebar-divider">
     <div class="sidebar-heading">

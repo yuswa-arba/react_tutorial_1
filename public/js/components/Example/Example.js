@@ -4590,7 +4590,7 @@ function attemptToDispatchEvent(topLevelType, eventSystemFlags, container, nativ
 
         targetInst = null;
       } else if (nearestMounted !== targetInst) {
-        // If we get an event (ex: img onload) before committing that
+        // If we get an event (ex: images onload) before committing that
         // component's mount, ignore it for now (that is, treat it as if it was an
         // event on a non-React tree). We might also consider queueing events and
         // dispatching them after the mount.
@@ -12639,7 +12639,7 @@ function getStateFromUpdate(workInProgress, queue, update, prevState, nextProps,
         if (partialState === null || partialState === undefined) {
           // Null and undefined are treated as no-ops.
           return prevState;
-        } // Merge the partial state and the previous state.
+        } // Merge the partials state and the previous state.
 
 
         return _assign({}, prevState, partialState);
@@ -12940,7 +12940,7 @@ function applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromPro
 
   {
     warnOnUndefinedDerivedState(ctor, partialState);
-  } // Merge the partial state and the previous state.
+  } // Merge the partials state and the previous state.
 
 
   var memoizedState = partialState === null || partialState === undefined ? prevState : _assign({}, prevState, partialState);
@@ -25809,7 +25809,7 @@ var ReactNoopUpdateQueue = {
    * during the merge.
    *
    * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {object} partialState Next partial state to be merged with state.
+   * @param {object} partialState Next partials state to be merged with state.
    * @param {?function} callback Called after component is updated.
    * @param {?string} Name of the calling function in the public API.
    * @internal
@@ -25859,8 +25859,8 @@ Component.prototype.isReactComponent = {};
  * shouldComponentUpdate, and this new state, props, and context will not yet be
  * assigned to this.
  *
- * @param {object|function} partialState Next partial state or function to
- *        produce next partial state to be merged with current state.
+ * @param {object|function} partialState Next partials state or function to
+ *        produce next partials state to be merged with current state.
  * @param {?function} callback Called after state is updated.
  * @final
  * @protected

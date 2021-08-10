@@ -58,3 +58,23 @@ a {
     font-weight: 800;
   }
 }
+
+.cursor {
+    cursor: pointer;
+}
+
+/* Max width 100px to 300px*/
+$spaceMaxWidthPx: (100, 150, 200, 250, 300);
+@each $onWidth in $spaceMaxWidthPx {
+    .max-w-#{$onWidth} {
+        max-width: #{$onWidth}#{'px'} !important;
+    }
+}
+
+// Width 5% to 100%
+$spaceMaxWidthPercent: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
+@each $onWidth in $spaceMaxWidthPercent {
+    .max-w-#{$onWidth}-percent {
+        max-width: #{$onWidth}#{'%'};
+    }
+}

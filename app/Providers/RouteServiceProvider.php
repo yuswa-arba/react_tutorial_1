@@ -42,9 +42,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
+//        $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+
+        $this->mapBackendRoutes();
+        $this->mapFrontendRoutes();
 
         //
     }
@@ -77,4 +80,21 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }
+
+    private function mapBackendRoutes()
+    {
+        Route::prefix(config('router.prefix.backend'))
+            ->middleware('web')
+            ->namespace($this->namespace . config('router.namespace.backend'))
+            ->group(base_path('routes/backend/backend.php'));
+    }
+
+    private function mapFrontendRoutes()
+    {
+        Route::prefix(config('router.prefix.frontend'))
+            ->middleware('web')
+            ->namespace($this->namespace . config('router.namespace.frontend'))
+            ->group(base_path('routes/frontend/frontend.php'));
+    }
+
 }
