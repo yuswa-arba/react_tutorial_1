@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import * as notify from '../../../lib/notification'
 
 import {FormGroupUnderLine} from "../../../ui/forms/FormGroup";
 import {SelectOptionReligion} from "../../../ui/forms/useStore"
@@ -64,7 +65,7 @@ class CustomerMain extends Component {
                 this.setState({
                     isLoading: false
                 }, () => {
-                    console.log(err)
+                    notify.error(err.message)
                 })
             })
     }

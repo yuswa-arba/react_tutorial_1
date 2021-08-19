@@ -9,6 +9,8 @@ import {ButtonIconSplitLight, ButtonIconSplitPrimary} from "../../../ui/componen
 import {updateCustomer} from "../../../lib/customers";
 import {updateObjectOnList} from "../../../config/manage";
 
+import * as notify from '../../../lib/notification'
+
 class CustomerDetail extends Component {
 
     state = {
@@ -131,32 +133,36 @@ class CustomerDetail extends Component {
         updateCustomer(formRequest, customer.id)
             .then((resData) => {
 
-                const customer = resData.data && resData.data.customer ? resData.data.customer : {}
-                if (customer) {
+                if (resData && resData.status === 'success') {
 
-                    this.setState((prevState) => {
+                    const customer = resData.data && resData.data.customer ? resData.data.customer : {}
+                    if (customer) {
 
-                        let newFormRequest = prevState.formRequest
+                        this.setState((prevState) => {
 
-                        Object.keys(newFormRequest).forEach(key => {
-                            newFormRequest[key] = ''
+                            let newFormRequest = prevState.formRequest
+
+                            Object.keys(newFormRequest).forEach(key => {
+                                newFormRequest[key] = ''
+                            })
+
+                            return {
+                                formRequest: newFormRequest,
+                                customer: customer,
+                                previewEdit: false
+                            }
+
                         })
 
-                        return {
-                            formRequest: newFormRequest,
-                            customer: customer,
-                            previewEdit: false
-                        }
+                        this._handleUpdateProps(customer)
 
-                    })
-
-                    this._handleUpdateProps(customer)
+                    }
 
                 }
 
             })
             .catch((err) => {
-                console.log(err)
+                notify.error(err.message)
             })
 
     }

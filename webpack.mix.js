@@ -31,6 +31,7 @@ mix.copy([
 mix.copyDirectory('resources/assets/plugins/chart.js', 'public/plugins/chart');
 mix.copyDirectory('resources/assets/plugins/fontawesome-free', 'public/plugins/fontawesome-free');
 mix.copyDirectory('resources/assets/plugins/jquery-easing', 'public/plugins/jquery-easing');
+mix.copyDirectory('resources/assets/plugins/toastr', 'public/plugins/toastr');
 
 mix.copyDirectory('resources/assets/images', 'public/images');
 

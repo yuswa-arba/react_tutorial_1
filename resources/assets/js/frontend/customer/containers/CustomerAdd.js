@@ -8,6 +8,8 @@ import {FormGroup} from "../../../ui/forms/FormGroup";
 import {createCustomer} from "../../../lib/customers";
 import {rootCustomerDetail, rootCustomerMain} from "../../../lib/const";
 
+import * as notify from '../../../lib/notification'
+
 class CustomerAdd extends Component {
 
     state = {
@@ -27,24 +29,28 @@ class CustomerAdd extends Component {
         createCustomer(this.state.formRequest)
             .then((resData) => {
 
-                const {passState} = this.state
+                if (resData && resData.status === 'success') {
 
-                const customer = resData.data && resData.data.customer ? resData.data.customer : {}
-                if (customer) {
+                    const {passState} = this.state
 
-                    this.props.history.push({
-                        pathname: rootCustomerDetail(customer.id),
-                        state: {
-                            passState: passState,
-                            customer: customer
-                        }
-                    })
+                    const customer = resData.data && resData.data.customer ? resData.data.customer : {}
+                    if (customer) {
+
+                        this.props.history.push({
+                            pathname: rootCustomerDetail(customer.id),
+                            state: {
+                                passState: passState,
+                                customer: customer
+                            }
+                        })
+
+                    }
 
                 }
 
             })
             .catch((err) => {
-                console.log(err)
+                notify.error(err.message)
             })
     }
 

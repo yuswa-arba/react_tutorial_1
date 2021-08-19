@@ -1,5 +1,6 @@
 import {get} from "./api";
 import * as constant from './const'
+import * as notify from '../lib/notification'
 
 export function customerActiveMonthly() {
     return get(constant.srvDashboardCustomerActiveMonthly)
@@ -12,7 +13,7 @@ export function customerActiveMonthly() {
             }
 
         }).catch((err) => {
-            console.log(err)
+            notify.error(err.message)
         })
 }
 
@@ -27,7 +28,7 @@ export function customerGender() {
             }
 
         }).catch((err) => {
-            console.log(err)
+            notify.error(err.message)
         })
 }
 
@@ -42,7 +43,7 @@ export function allHeaderData() {
             }
 
         }).catch((err) => {
-            console.log(err)
+            notify.error(err.message)
         })
 }
 
@@ -57,7 +58,7 @@ export function customerReligion() {
             }
 
         }).catch((err) => {
-            console.log(err)
+            notify.error(err.message)
         })
 }
 
@@ -71,5 +72,7 @@ export function customerActivity() {
                 return null
             }
 
+        }).catch((err) => {
+            notify.error(err.message)
         })
 }
